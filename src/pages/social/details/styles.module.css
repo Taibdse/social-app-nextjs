@@ -1,0 +1,40 @@
+.title {
+  background-color: #942f70;
+  padding: 10px, 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  display: inline;
+}
+
+.banner {
+  border: 1px dashed #f2f2f2;
+  border-radius: 0px 64px;
+  height: 445px;
+  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.field-value {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.datetime-field-value {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 40px;
+  color: #333333;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: #333333;
+  white-space: pre-line;
+}

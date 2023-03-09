@@ -36,21 +36,21 @@ export default function AppNavbar() {
               <Nav className="justify-content-end flex-grow-1">
                 <Nav.Link
                   as={NextLink}
-                  href="/blog"
+                  href="#"
                   className={styles['nav-link']}
                 >
                   Blog
                 </Nav.Link>
                 <Nav.Link
                   as={NextLink}
-                  href="/socials"
+                  href="/social/create"
                   className={styles['nav-link']}
                 >
                   Socials
                 </Nav.Link>
                 <Nav.Link
                   as={NextLink}
-                  href="/past-socials"
+                  href="#"
                   className={styles['nav-link']}
                 >
                   Past Socials
@@ -60,12 +60,12 @@ export default function AppNavbar() {
                   id={`offcanvasNavbarDropdown-expand-${expand}`}
                   className={classNames(styles['nav-dropdown'], 'mr-5')}
                 >
-                  <NavDropdown.Item href="#action3">Club 1</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Club 2</NavDropdown.Item>
+                  <NavDropdown.Item href="#">Club 1</NavDropdown.Item>
+                  <NavDropdown.Item href="#">Club 2</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link
                   as={NextLink}
-                  href="/contact"
+                  href="#"
                   className={styles['nav-link']}
                 >
                   Contact

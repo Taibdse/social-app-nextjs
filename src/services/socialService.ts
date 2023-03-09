@@ -5,8 +5,12 @@ const baseUrl = "/social/";
 class SocialService {
   static async create(data: Object) {
     const url = `${baseUrl}`;
-    // return axios.post('https://api.supermomos-dev.com/interview/social', data);
     return httpClient.post(url, data);
+  }
+
+  static async getById(id: string) {
+    const url = `${baseUrl}/${id}`;
+    return httpClient.get(url);
   }
 }
 

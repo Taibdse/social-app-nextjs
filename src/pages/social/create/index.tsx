@@ -1,25 +1,29 @@
-import { Icons } from '@/common/constants';
+import { defaultSocialValues, Icons, privacyOptions, socialFormValidationSchema, tags } from '@/common/constants';
+import { saveSocial } from '@/common/storage';
 import { formatDateTime } from '@/common/utils';
 import BadgeField from '@/components/BadgeField';
 import BannerUploadDialog from '@/components/BannerUploadDialog';
 import CheckField from '@/components/CheckField';
 import ContentEditableField from '@/components/ContentEditableField';
 import InputField from '@/components/InputField';
+import Loading from '@/components/Loading';
 import SocialService from '@/services/socialService';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useMemo, useRef, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { defaultSocialValues, privacyOptions, socialFormValidationSchema, tags } from '@/common/constants';
 import styles from './styles.module.css';
 
 declare const window: any;
 
-export default function CreateSocialSection() {
+export default function CreateSocialPage() {
   const [selectedBanner, setSelectedBanner] = useState<string | null>(null);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const uploadDialogRef: any = useRef();
+  const router = useRouter();
   const socialForm = useForm({
     resolver: yupResolver(socialFormValidationSchema),
     defaultValues: defaultSocialValues,
@@ -27,7 +31,7 @@ export default function CreateSocialSection() {
   });
 
   const { control } = socialForm;
-  const bannerBackground = useMemo(() => (selectedBanner ? `url(${selectedBanner}) no-repeat` : 'none'), [selectedBanner]);
+  const bannerBackground = useMemo(() => (selectedBanner ? `url(${selectedBanner}) 50% 50% no-repeat` : 'none'), [selectedBanner]);
   const handleOpenUploadDialog = () => {
     uploadDialogRef.current.setShow(true);
     if (selectedBanner) uploadDialogRef.current.setSelectedBanner(selectedBanner);
@@ -70,16 +74,17 @@ export default function CreateSocialSection() {
       isManualApprove,
       privacy
     }
-    console.log(data)
-    console.log(JSON.stringify(data))
-
+    setLoading(true);
     try {
       const res = await SocialService.create(data);
-      console.log(res);
       toast.success('Created social successfully!');
+      saveSocial(res.data);
+      router.push(`/social/details/${res.data.id}`);
     } catch (error) {
       console.log(error);
       toast.error('Failed to create social!');
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -216,6 +221,7 @@ export default function CreateSocialSection() {
         onSave={handleSaveBanner}
         ref={uploadDialogRef}
       />
+      <Loading isLoading={isLoading} />
     </div>
   )
 }

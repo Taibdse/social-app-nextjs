@@ -50,6 +50,7 @@ export default function CreateSocialPage() {
     } else if (!selectedBanner) {
       return toast.error('Please select banner!');
     }
+
     const {
       title,
       startAtDate,
@@ -62,6 +63,12 @@ export default function CreateSocialPage() {
       isManualApprove,
       privacy
     } = socialForm.getValues();
+
+    const date = new Date(`${startAtDate} ${startAtTime}`);
+    if (date <= new Date()) {
+      return toast.error('Please select the future datetime!');
+    }
+
     const data = {
       title,
       startAt: formatDateTime(startAtDate, startAtTime),

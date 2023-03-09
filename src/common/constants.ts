@@ -27,6 +27,10 @@ export const socialFormValidationSchema = yup
         return validateHhMm(value);
       }),
     venue: yup.string().required('Venue is required!'),
+    price: yup.string().test('price', 'Price must be greater than 0!', (value: string | undefined): boolean => {
+      if (!value) return true;
+      return +value > 0;
+    }),
     capacity: yup.number()
       .typeError('Must be number')
       .integer('Must be integer value!')

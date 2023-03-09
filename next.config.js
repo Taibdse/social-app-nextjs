@@ -18,6 +18,9 @@ async function redirects() {
 const nextConfig = {
   reactStrictMode: true,
   redirects,
+  images: {
+    domains: ["supermomos-app-resources-us.s3.amazonaws.com"],
+  },
 };
 
 module.exports = nextConfig;

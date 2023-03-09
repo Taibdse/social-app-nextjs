@@ -8,21 +8,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from './styles.module.css';
+import Image from 'next/image';
 
 const OFF_CANVAS_WIDTH = '280px';
 
 export default function AppNavbar() {
   const expand = 'md';
-  // const [show, setShow] = useState(false);
-  // const location = useLocation();
-  const router = useRouter()
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = (e: any) => {
-  //   e.preventDefault();
-  //   setShow(true);
-  // }
-
 
   return (
     <>
@@ -30,7 +21,7 @@ export default function AppNavbar() {
         <Container>
           <NextLink href={'/'} passHref>
             <Navbar.Brand>
-              <img src={'/assets/img/logo.svg'} alt="" />
+              <Image width={200} height={35.5} src={'/assets/img/icons/logo.svg'} alt="" />
             </Navbar.Brand>
           </NextLink>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

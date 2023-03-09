@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import styles from './styles.module.css';
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,7 +19,7 @@ export default function Badge(props: BadgeProps) {
   return (
     <div className={classNames(styles['badge'], rest.className, { [styles['removeable']]: canRemove })} {...rest}>
       <span>{text}</span>
-      {canRemove && <img src='/assets/img/icons/times.svg' onClick={handleRemove} />}
+      {canRemove && <Image width={8} height={8} src='/assets/img/icons/times.svg' alt='' onClick={handleRemove} />}
     </div>
   )
 }

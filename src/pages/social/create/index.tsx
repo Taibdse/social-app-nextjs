@@ -7,12 +7,12 @@ import ContentEditableField from '@/components/ContentEditableField';
 import InputField from '@/components/InputField';
 import SocialService from '@/services/socialService';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classNames from 'classnames';
+import Image from 'next/image';
 import { useMemo, useRef, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { defaultSocialValues, privacyOptions, socialFormValidationSchema, tags } from './constants';
+import { defaultSocialValues, privacyOptions, socialFormValidationSchema, tags } from '@/common/constants';
 import styles from './styles.module.css';
 
 declare const window: any;
@@ -95,7 +95,7 @@ export default function CreateSocialSection() {
           />
           <div className='row mt-4'>
             <div className='col-sm-6 d-flex align-items-start mb-5 gap-2'>
-              <img src={Icons.Date} className="" alt="" />
+              <Image src={Icons.Date} width={33} height={33} alt="" />
               <InputField
                 type="date"
                 placeholder='Date'
@@ -105,7 +105,7 @@ export default function CreateSocialSection() {
               />
             </div>
             <div className='col-sm-6 d-flex align-items-start mb-5 gap-2'>
-              <img src={Icons.Time} alt="" className={classNames(styles['icon-lg'])} />
+              <Image src={Icons.Time} alt="" width={33} height={33} />
               <InputField
                 type="time"
                 placeholder='Time'
@@ -115,7 +115,7 @@ export default function CreateSocialSection() {
               />
             </div>
             <div className='col-12 d-flex align-items-start mb-3 gap-2'>
-              <img src={Icons.Marker} className="mt-3" alt="" />
+              <Image src={Icons.Marker} width={17} height={17} className="mt-3" alt="" />
               <InputField
                 placeholder='Venue'
                 control={control}
@@ -124,7 +124,7 @@ export default function CreateSocialSection() {
               />
             </div>
             <div className='col-6 d-flex align-items-start mb-3 gap-2'>
-              <img src={Icons.People} className="mt-3" alt="" />
+              <Image width={17} height={17} src={Icons.People} className="mt-3" alt="" />
               <InputField
                 type="number"
                 placeholder='Max capacity'
@@ -134,7 +134,7 @@ export default function CreateSocialSection() {
               />
             </div>
             <div className='col-6 d-flex align-items-start mb-3 gap-2'>
-              <img src={Icons.Dollar} className="mt-3" alt="" />
+              <Image width={17} height={17} src={Icons.Dollar} className="mt-3" alt="" />
               <InputField
                 type="number"
                 placeholder='Cost per person'
@@ -153,7 +153,7 @@ export default function CreateSocialSection() {
           >
             {!selectedBanner && (
               <div>
-                <img src={Icons.UploadBanner} alt="" className={'mr-10'} />
+                <Image width={28} height={28} src={Icons.UploadBanner} alt="" className={'mr-10'} />
                 <span className='ml-3'>Add a banner</span>
               </div>
             )}

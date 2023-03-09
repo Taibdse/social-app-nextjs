@@ -25,7 +25,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   console.log('request')
   console.log('request1')
   return new Promise((resolve, reject) => {
-    proxy.web(req, res, { target: API_URL, changeOrigin: true, path }, (err: any, data: any) => {
+    proxy.web(req, res, { target: API_URL, changeOrigin: true }, (err: any, data: any) => {
       console.log({ err, data });
       console.log(123)
       if (err) {

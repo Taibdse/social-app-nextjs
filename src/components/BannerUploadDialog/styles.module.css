@@ -1,0 +1,37 @@
+.save-btn,
+.save-btn:hover,
+.save-btn:focus,
+.save-btn:active {
+  background-color: #fef452 !important;
+  color: #942f70 !important;
+  outline: none;
+  border: none;
+}
+
+.close-btn,
+.close-btn:hover,
+.close-btn:focus,
+.close-btn:active {
+  background: none !important;
+  outline: none !important;
+  border: none;
+  color: black;
+}
+
+.modal-90w {
+  width: 90%;
+}
+
+.banner {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.banner:hover {
+  transform: scale(1.05);
+}
+
+.banner.selected {
+  box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.2);
+}

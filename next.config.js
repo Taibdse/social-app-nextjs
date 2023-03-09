@@ -1,6 +1,23 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+
+async function redirects() {
+  return [
+    {
+      source: "/",
+      destination: "/social/create",
+      permanent: true,
+    },
+    {
+      source: "/api/social/create",
+      destination: "https://api.supermomos-dev.com/interview/social",
+      permanent: true,
+    },
+  ];
 }
 
-module.exports = nextConfig
+const nextConfig = {
+  reactStrictMode: true,
+  redirects,
+};
+
+module.exports = nextConfig;

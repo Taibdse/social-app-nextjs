@@ -1,0 +1,40 @@
+.navbar {
+  color: #333333;
+  background: transparent;
+  font-size: 16px;
+}
+
+.navbar .nav-link {
+  margin-right: 25px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link-icon {
+  margin-right: 10px;
+}
+
+.menu-dropdown {
+  width: 280px;
+  background-color: #777777;
+  color: var(--white-color);
+}
+
+.menu-dropdown .btn-close {
+  color: var(--primary-color);
+}
+
+.menu-dropdown-list > div {
+  height: 72px;
+  cursor: pointer;
+}
+
+.nav-dropdown {
+  color: #333333;
+  margin-right: 25px;
+}
